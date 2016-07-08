@@ -1,14 +1,11 @@
-# MadeWithLove
+# Savory
 Home cooked food delivered/pickup for busy people
 
-## Team
-
-  - __Product Owner__: Dan Sajjad
-  - __Scrum Master__: Shinji Furuya
-  - __Development Team Members__: Andrew Fung, Alex Wong
 
 ## Table of Contents
 
+1. [Architecture](#Architecture)  
+1. [Features](#Features) 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
@@ -16,6 +13,22 @@ Home cooked food delivered/pickup for busy people
     1. [Tasks](#tasks)
 1. [Team](#team)
 1. [Contributing](#contributing)
+
+
+
+[Imgur](http://i.imgur.com/r9ZAqMs.jpg?1
+
+## Architecture
+[Imgur](http://i.imgur.com/zABJec5.png?1)
+
+## Features
+
+### Full featured search engine
+- The application uses Elasticsearch to store meals created by chefs. A meal record included data such as ingredients, cuisine type, health labels, chef names and various other meta-data. Utilizing Elasticsearch's indexing the app is able to parse through the record efficiently for an matches
+- A search can be made on multiple criteria 
+
+### Meal recommendation engine
+- A context based algorithm is used to show users personalized meals that are available to purchase. The algorithm identifies the current user through sessions data and queries the user's purchase history to identify patterns. The key metric utilized is the type of cuisine ordered most often. The engine then queries the availble meal in the same category and filters the results by chefs with a rating of 4 or higher and displays the results 
 
 ## Usage
 
@@ -105,11 +118,20 @@ sequelize db:seed:all
 ```
 - With everything running visit your *localhost:3000* to view the application
 
-### Roadmap
+## Serverside integration tests
+This repo includes basic serverside integartion tests which run on mocha/chai.
+- Run `npm test`
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+## Team
 
+  - __Product Owner__: Dan Sajjad
+  - __Scrum Master__: Shinji Furuya
+  - __Development Team Members__: Andrew Fung, Alex Wong
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+## Roadmap
+
+View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
